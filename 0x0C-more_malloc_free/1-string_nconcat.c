@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "main.h"
+#include <string.h>
 /**
 * string_nconcat - a function that concatenates two strings.
 *
@@ -6,41 +8,32 @@
 * @s2: secound char
 * @n: unsigned int
 *
-* Return: If the function fails, it should return NULL
+* Return: If the function fails, it should return a NULL value
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int x, y, z;
-	char *s;
+	unsigned int i, j, len;
+	char *pointer;
 
 	if (s1 == NULL)
-	{
-	x = 0;
-	}
-	else
-	{
-	for (x = 0; s1[x]; ++x)
-	;
-	}
+		s1 = "";
 	if (s2 == NULL)
-	{
-	y = 0;
-	}
-	else
-	{
-	for (y = 0; s2[y]; ++y)
-	;
-	}
-	if (y > n)
-		y = n;
-		s = malloc(sizeof(char) * (x + y + 1));
-	if (s == NULL)
-	return (NULL);
+		s2 = "";
 
-	for (z = 0; z < x; z++)
-		s[z] = s1[z];
-	for (z = 0; z < y; z++)
-		s[z + x] = s2[z];
-		s[x + y] = '\0';
-	return (s);
+	len = strlen(s1) + n;
+	pointer = malloc(sizeof(*pointer) * (len + 1));
+	if (pointer == NULL)
+		return (NULL);
+
+	for (i = 0; s1[i] != '\0'; i++)
+		pointer[i] = s1[i];
+	for (j = 0; j < n && s2[j] != '\0'; j++)
+	{
+		pointer[i] = s2[j];
+		i++;
+	}
+
+	pointer[i] = '\0';
+
+	return (pointer);
 }
