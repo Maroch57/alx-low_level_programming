@@ -8,23 +8,27 @@
  * @h: assigned head of list
  * Return: the number of nodes in the list.
  */
-
-size_t print_list(const list_t *h);
+size_t print_list(const list_t *h)
 {
-	int count = 0;
+	/* initialize return data type, size_t*/
+	size_t bigSize;
 
-	while (h)
+	bigSize = 0;
+	/*loop around h list*/
+	while (h != NULL)
 	{
 		if (h->str == NULL)
-		{
-			printf("[0] (nil)\n")
-		}
+			printf("[%d] %s\n", 0, "(nil)");
+		/*no node to return because the current node was calculated prev.*/
+
 		else
 		{
 			printf("[%d] %s\n", h->len, h->str);
 		}
-		count++;
+			/*use h->next as the newly incremented value of h, not h++*/
 		h = h->next;
+		bigSize++;
 	}
-	return (count);
+
+	return (bigSize);
 }

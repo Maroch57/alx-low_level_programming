@@ -4,17 +4,19 @@
 #include "lists.h"
 
 /**
- * * list_len - check t
- * * @h: assigned list name.
- * * Return: number of nodes.
- * */
+ * list_len - it is a fn that returns all elements in list_t
+ * @h: assigned list name.
+ * Return: number of nodes.
+ */
 size_t list_len(const list_t *h)
 {
-       	int count = 0;
-	while (h)
-	{
-		count++;
-		h = h->next;
+	size_t counter;
 
-		return (count);
+	counter = 0;
+	while (h != NULL)
+	{
+		h = h->next;
+		counter++;
+	}
+	return (counter);
 }
