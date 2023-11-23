@@ -10,7 +10,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int numb = 0, mult_no = 1;
-	int lnth;
+	int lngth;
 
 	if (!b)
 		return (0);
@@ -23,7 +23,7 @@ unsigned int binary_to_uint(const char *b)
 		if (b[lngth] != '0' && b[lngth] != '1')
 			return (0);
 
-		num += (b[len] - '0') * mult_no;
+		numb += (b[lngth] - '0') * mult_no;
 		mult_no *= 2;
 	}
 
