@@ -152,27 +152,27 @@ void ttype(unsigned int k_type, unsigned char *check_ver)
 }
 
 /**
-* entry - print the entry point
-* @check_ver: the ELF struct
-* @e_entry: the data to print
-* return: no return is a void func.
+* entry_pt - print entry point.
+* @check_ver: ELF struct.
+* @p_entry: data to be printed.
+* return: NULL.
 */
 
-void entry(unsigned int e_entry, unsigned char *check_ver)
+void entry_pt(unsigned int p_entry, unsigned char *check_ver)
 {
 	if (check_ver[EI_DATA] == ELFDATA2MSB)
-		e_entry = REV(e_entry);
+		p_entry = REV(p_entry);
 
 	printf("  Entry point address:               ");
-	printf("%#x\n", (unsigned int)e_entry);
+	printf("%#x\n", (unsigned int)p_entry);
 }
 
 /**
 * main - read a ELF file.
-* @argc: the number of args
-* @argv: the Args
-* section header: the header of this function is holberton.h
-* Return: 0 in success
+* @argc: the number of arguments.
+* @argv: the arguments.
+* section header: essential for understanding varous info about the ELF file.
+* Return: 0 if successful.
 */
 
 int main(int argc, char *argv[])
@@ -198,16 +198,16 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", *(argv + 1));
 		exit(98);
 	}
-	validate(file->check_ver);
-	kadabra(file->check_ver);
-	m_class(file->check_ver);
-	data_type(file->check_ver);
-	versn(file->check_ver);
-	serious_osbi(file->check_ver);
+	validate(file->e_ident);
+	kadabra(file->e_ident);
+	m_class(file->e_ident);
+	data_type(file->e_ident);
+	versn(file->e_ident);
+	serious_osbi(file->e_ident);
 	printf("  ABI Version:                       ");
-	printf("%i\n", file->check_ver[EI_ABIVERSION]);
-	ttype(file->k_type, file->check_ver);
-	entry(file->e_entry, file->check_ver);
+	printf("%i\n", file->e_ident[EI_ABIVERSION]);
+	ttype(file->e_type, file->e_ident);
+	entry_pt(file->e_entry, file->e_ident);
 	free(file);
 	_close = close(fd);
 	if (_close)
