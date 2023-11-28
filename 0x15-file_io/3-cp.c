@@ -1,4 +1,10 @@
+#include <stdio.h>
 #include "main.h"
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 /**
  * _error - reads a file.
@@ -46,11 +52,11 @@ void cp(char *file_from, char *file_to)
 		/* READ */
 		rds_read = read(rd_read, bffer, 1024);
 		if (rds_read < 0)
-			_error(98, file_to);
+			_error(98, file_from);
 		/* WRITE */
 		rds_write = write(rd_write, bffer, rds_read);
 		if (rds_write < rds_read)
-			_error(99, file_from);
+			_error(99, file_to);
 	}	while (rds_write == 1024);
 	if (close(rd_read) < 0)
 	{
