@@ -36,7 +36,7 @@ void kadabra(unsigned char *check_ver)
 	int limit;
 
 	limit = EI_NIDENT - 1;
-	printf("  kadabra:   ");
+	printf("  Magic:   ");
 	for (i = 0; i < limit; i++)
 		printf("%02x ", *(check_ver + i));
 	printf("%02x\n", *(check_ver + i));
@@ -50,7 +50,7 @@ void kadabra(unsigned char *check_ver)
 
 void m_class(unsigned char *check_ver)
 {
-	printf("  m_class:                             ");
+	printf("  Class:                             ");
 	if (check_ver[EI_CLASS] == ELFCLASSNONE)
 		printf("This class is invalid\n");
 	else if (check_ver[EI_CLASS] == ELFCLASS32)
@@ -69,7 +69,7 @@ void m_class(unsigned char *check_ver)
 
 void data_type(unsigned char *check_ver)
 {
-	printf("  data_type:                              ");
+	printf("  Data:                              ");
 	if (check_ver[EI_DATA] == ELFDATANONE)
 		printf("Unknown data format\n");
 	else if (check_ver[EI_DATA] == ELFDATA2LSB)
@@ -88,7 +88,7 @@ void data_type(unsigned char *check_ver)
 
 void versn(unsigned char *check_ver)
 {
-	printf("  versn:                           ");
+	printf("  Version:                           ");
 	if (check_ver[EI_VERSION] == EV_CURRENT)
 		printf("%i (current)\n", EV_CURRENT);
 	else
