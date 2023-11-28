@@ -1,7 +1,7 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include <elf.h>
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 #define REV(h) ((h << 24) | (((h >> 16) << 24) >> 16) | \
 (((h << 16) >> 24) << 16) | (h >> 24))
 /**
