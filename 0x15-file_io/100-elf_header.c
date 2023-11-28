@@ -32,7 +32,7 @@ void validate(unsigned char *check_ver)
 
 void kadabra(unsigned char *check_ver)
 {
-	int i; 
+	int i;
 	int limit;
 
 	limit = EI_NIDENT - 1;
