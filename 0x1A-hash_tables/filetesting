@@ -4,11 +4,11 @@
 #include "hash_tables.h"
 
 /**
- * create_node - Creates a new node for the sorted hash table.
- * @key: The key string.
- * @value: The value associated with the key.
+ * create_node - ensures creation of a new node for the sorted hash table.
+ * @key: the key string in subject.
+ * @value: value associated with the key in subject.
  *
- * Return: A pointer to the newly created node, or NULL on failure.
+ * Return: ptr to the newly created node else, NULL.
  */
 shash_node_t *create_node(const char *key, const char *value)
 {
@@ -28,10 +28,10 @@ shash_node_t *create_node(const char *key, const char *value)
 }
 
 /**
- * shash_table_create - Creates a sorted hash table.
- * @size: The size of the hash table array.
+ * shash_table_create - ensures creation of a sorted hash table.
+ * @size: size of the hash table array.
  *
- * Return: A pointer to the created hash table, or NULL on failure.
+ * Return: ptr to the created hash table, else, NULL on failure.
  */
 shash_table_t *shash_table_create(unsigned long int size)
 {
@@ -63,12 +63,12 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 
 /**
- * shash_table_set - Adds or updates an element in the sorted hash table.
- * @ht: The hash table.
- * @key: The key string.
- * @value: The value associated with the key.
+ * shash_table_set - responsible for updating/adding an element in the sorted hash table.
+ * @ht: hash table in subject.
+ * @key: key string in subject.
+ * @value: value associated with the key.
  *
- * Return: 1 on success, 0 on failure.
+ * Return: 1 on success, else 0 on failure.
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
@@ -129,11 +129,11 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 }
 
 /**
- * shash_table_get - Retrieves a value associated with a key.
- * @ht: The hash table.
- * @key: The key to search for.
+ * shash_table_get - fetches a value associated with the key in subject.
+ * @ht: hash table in subject.
+ * @key: the key to be searched for.
  *
- * Return: The value associated with the key, or NULL if key couldn't be found.
+ * Return: value associated with the key, else NULL on failure.
  */
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
@@ -158,8 +158,8 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 }
 
 /**
- * shash_table_print - Prints the sorted hash table.
- * @ht: The hash table.
+ * shash_table_print - responsible for printing the sorted hash table.
+ * @ht: the hash table in subject.
  */
 void shash_table_print(const shash_table_t *ht)
 {
@@ -183,8 +183,8 @@ void shash_table_print(const shash_table_t *ht)
 }
 
 /**
- * shash_table_print_rev - Prints the sorted hash table in reverse order.
- * @ht: The hash table.
+ * shash_table_print_rev - it prints the sorted hash table in reverse order.
+ * @ht: the hash table in subject.
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
@@ -208,8 +208,8 @@ void shash_table_print_rev(const shash_table_t *ht)
 }
 
 /**
- * shash_table_delete - Deletes the sorted hash table.
- * @ht: The hash table.
+ * shash_table_delete - responsible for deleting the sorted hash table.
+ * @ht: the hash table in subject.
  */
 void shash_table_delete(shash_table_t *ht)
 {
